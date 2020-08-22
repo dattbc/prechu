@@ -31,6 +31,7 @@ a.item{
 a.item:hover{
 	opacity: 0.7;
 }
+
 /* HEADER */	
 .header{
 	position: relative;
@@ -194,15 +195,13 @@ a.item:hover{
 .banner{
 	background-image: url('../img/bg-banner.png');
 	background-position: center;
-	/* background-repeat: no-repeat; */
 	background-size: cover;
 	display: flex;
 	align-items: center;
 }
 .banner .wrapper img#ip{
-	max-width: 100%;
-	height: auto;
-	padding: 38px 0 27px 62px;
+	object-fit: contain;
+	padding: 38px 0 27px 45px;
 }
 .banner .wrapper{
 	display: flex;
@@ -211,7 +210,7 @@ a.item:hover{
 .banner .text{
 	color: #fff;
 	font-family: SegoeWP;
-	padding: 154px 0 0 106px;
+	padding: 154px 85px 0 106px;
 }
 .banner .text h2{
 	font-size: 42.35px;
@@ -237,15 +236,11 @@ a.item:hover{
 	width: 23px;
 	height: 23px;
 }
-.banner img#left{	
-	padding-left: 92px;
-}
-.banner img#right{
-	padding-right: 92px;
+.banner img#left, img#right{	
+	margin: auto 0;
 }
 @media screen and (max-width: 1300px){
 	.banner .wrapper img#ip{
-		object-fit: contain;
     	width: 30%;
     	padding: 22px 0 13px 27px;
     	margin-left: 40px;
@@ -362,6 +357,7 @@ a.item:hover{
 		padding: 15px 10px 0 15px;
 	}
 }
+
 /* PICTURE */
 .picture{
 	position: relative;
