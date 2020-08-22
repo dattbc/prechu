@@ -5,11 +5,16 @@
 }
 @font-face{
 	font-family: SegoeWP;
-	src: url('../font/SegoeWP-Light.ttf')
+	src: url('../font/SegoeWP-Light.ttf');
 }
 @font-face{
 	font-family: SegoeWPN;
-	src: url('../font/SegoeWPN.ttf')
+	src: url('../font/SegoeWPN.ttf');
+}
+@font-face{
+	font-family: Source;
+	src: url('../font/SourceSansPro-Black.ttf');
+	font-weight: normal;
 }
 .wrapper{
 	max-width: 1024px;
@@ -18,11 +23,18 @@
 }
 body{
 	background: #fff;
+	min-width: 320px;
+}
+a.item{
+	text-decoration: none;
+}
+a.item:hover{
+	opacity: 0.7;
 }
 /* HEADER */	
 .header{
 	position: relative;
-	z-index: 10;
+	z-index: 5;
 }
 .header .wrapper{
 	display: flex;
@@ -31,21 +43,22 @@ body{
 .header .logo{
 	display: flex;
 	align-items: center;
-	padding: 24px 0 11px 27px;
+	padding: 16px 0 11px 27px;
+}
+.header a.logo{
+	color: #000;
+}
+.header a.logo p{
+	font-size: 45px;
+	font-family: Source;
+	color: #fff;
 }
 .header .circle{
-	clip-path: circle(50%);
+	text-align: center;
+	border-radius: 50%;
 	width: 44px;
 	height: 44px;
 	background: #5094f2;
-	text-align: center;
-}
-.header .circle img{
-	padding: 12px 0 0 0;
-}
-.header .logo a{
-	text-decoration: none;
-	color: #000000;
 }
 .header .logo h1{
 	font-family: SegoeWP;
@@ -76,13 +89,13 @@ body{
 .header .wrapper .openmenu, .closemenu{
 	display: none;
 }
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 767px) {
 	.header .menu {
 		display: none;
 		position: fixed;
 		background: rgb(0, 0, 0, 0.9);
-		left: 0;
 		width: 100%;
+		left: 0;
 		top: 0;
 		bottom: 0;
 		flex-wrap: wrap;
@@ -98,20 +111,19 @@ body{
 		width: 50px;
 		height: 50px;
 	}
-	.header .circle img {
-		width: 50%;
-    	padding: 14px 0 0 0;
+	.header a.logo p{
+		font-size: 50px;
 	}
 	.header .menu li{
 		width: 100%;
 		display: flex;
 		justify-content: center;
 		margin-left: 0;
+		padding-top: 65px;
 	}
 	.header .menu li a{
 		color: #fff;
 		font-size: 30px;
-		padding-top: 50px;
 	}
 	.header .wrapper .openmenu{
 		display: block;
@@ -124,7 +136,7 @@ body{
 		z-index: 1;
 		color: #fff;
 		font-size: 40px;
-		top: 30px;
+		top: 50px;
 		right: 150px;
 	}
 	body.openmenu .closemenu {
@@ -140,7 +152,7 @@ body{
 		position: absolute;
 		top: 30px;
 		right: 27px;
-		border:  0 solid #5094f2;
+		border: 0 solid #5094f2;
 		background: #5094f2;
 		border-radius: 3px;
 		border-width: 10px;
@@ -151,8 +163,8 @@ body{
 		width: 40px;
 		height: 40px;
 	}
-	.header .circle img {
-    	padding: 10px 0 0 0;
+	.header a.logo p{
+		font-size: 40px;
 	}
 	.header .menu li a{
 		font-size: 25px;
@@ -182,7 +194,7 @@ body{
 .banner{
 	background-image: url('../img/bg-banner.png');
 	background-position: center;
-	background-repeat: no-repeat;
+	/* background-repeat: no-repeat; */
 	background-size: cover;
 	display: flex;
 	align-items: center;
@@ -208,21 +220,22 @@ body{
 .banner .text p.line{
 	font-size: 26.35px;
 }
-.banner .text p.signup{
+.banner .text a.signup{
 	font-size: 22.35px;
-	display: inline-block;
+	display: inline-flex;
 	background: #5094f2;
 	border-radius: 3px;
-	padding: 11px 11px 8px 11px;
+	padding: 11px 19px 5px 11px;
 	margin-left: 12px;
 	margin-top: 34px;
-}
-.banner .text .signup a{
-	text-decoration: none;
 	color: #fff;
-	position: relative;
-	bottom: 4px;
-	z-index: 0;
+}
+.banner a.signup p{
+	transform: translate(8px, -4px);
+}
+.banner a.signup img{
+	width: 23px;
+	height: 23px;
 }
 .banner img#left{	
 	padding-left: 92px;
@@ -233,14 +246,15 @@ body{
 @media screen and (max-width: 1300px){
 	.banner .wrapper img#ip{
 		object-fit: contain;
-    	width: 26%;
+    	width: 30%;
     	padding: 22px 0 13px 27px;
+    	margin-left: 40px;
 	}
 	.banner img#left, img#right{
 		display: none;
 	}
 	.banner .text{
-		padding: 60px 0 0 159px;
+		padding: 85px 0 0 110px;
 	}
 	.banner .text h2{
 		font-size: 38px;
@@ -248,15 +262,19 @@ body{
 	.banner .text p.line{
 		font-size: 24px;
 	}
-	.banner .text p.signup{
+	.banner .text a.signup{
 		margin-left: 0px;
 		margin-top: 33px;
 		font-size: 27px;
 	}
+	.banner a.signup img{
+		width: 28px;
+		height: 28px;
+	}
 }
-@media screen and (max-width: 930px){
+@media screen and (max-width: 945px){
 	.banner .text{
-		padding: 29px 0 31px 65px;
+		padding: 70px 0 0 65px;
 	}
 	.banner .text h2{
 		font-size: 31px;
@@ -264,13 +282,48 @@ body{
 	.banner .text p.line{
 		font-size: 22px;
 	}
-	.banner .text p.signup{
+	.banner .text a.signup{
 		font-size: 25px;
+	}
+}
+@media screen and (max-width: 850px){
+	.banner .text{
+		padding-top: 50px;
+	}
+}
+@media screen and (max-width: 767px){
+	.banner .text{
+		padding-top: 40px;
+	}
+	.banner .text a.signup{
+		font-size: 31px;
+	}
+	.banner a.signup p{
+		transform: translate(8px, -6px);
+	}
+	.banner a.signup img{
+		transform: translate(0px, 3px);
+	}
+}
+@media screen and (max-width: 680px){
+	.banner .text{
+		padding-top: 20px; 
+	}
+	.banner .wrapper img#ip{
+		margin-left: 5px;
+	}
+}
+@media screen and (max-width: 625px){
+	.banner .text{
+		padding: 10px 0 0 25px;
+	}
+	.banner .text a.signup{
+		margin-top: 10px;	
 	}
 }
 @media screen and (max-width: 530px){
 	.banner .text{
-		padding: 20px 0 0 30px;
+		padding: 25px 0 0 30px;
 	}
 	.banner .text h2{
 		font-size: 20px;
@@ -278,17 +331,37 @@ body{
 	.banner .text p.line{
 		font-size: 15px;
 	}
-	.banner .text p.signup{
+	.banner .text a.signup{
 		margin: 20px 0;
 		font-size: 15px;
+		padding: 5px 15px 5px 4px;
+	}
+	.banner a.signup img{
+		width: 16px;
+		height: 16px;
+		transform: translate(2px, 2px);
+	}
+	.banner a.signup p{
+		transform: translate(8px, -1px);
+	}
+	.banner .wrapper img#ip {
+    	margin-left: 30px;
 	}
 }
-@media screen and (max-width: 319px){
-	body{
-		display: none;
+@media screen and (max-width: 450px){
+	.banner .wrapper img#ip {
+		margin-left: 15px;
 	}
 }
-
+@media screen and (max-width: 380px){
+	.banner .wrapper img#ip{
+		margin-left: 0;
+		padding-left: 10px;
+	}
+	.banner .text{
+		padding: 15px 10px 0 15px;
+	}
+}
 /* PICTURE */
 .picture{
 	position: relative;
@@ -297,10 +370,10 @@ body{
 	content: "";
 	display: block;
 	height: 8px;
-	background-image: url(../img/rang-cua.png);
+	background-image: url('../img/rang-cua.png');
 	position: absolute;
-	top: -8px;
 	background-repeat: repeat-x;
+	top: -8px;
 	left: 0;
 	right: 0;
 }
@@ -325,26 +398,37 @@ body{
 	background-color: #ebbb11;
 }
 .picture .text{
-	text-align: center;	
 	padding-top: 22px;
 }
 .picture .item{
-	padding: 66px 60px 0 25px;
+	margin: 66px 60px 0 25px;
 	text-align: -webkit-center;
+	font-family: SegoeWPN;
+	font-weight: normal;
 }
 .picture .text p.title{
-	font-family: SegoeWPN;
 	font-size: 20.35px;
 	color: #5094f2;
-	font-weight: normal;
 }
 .picture .text p.sub{
-	font-family: SegoeWPN;
 	font-size: 14.35px;
 	color: #909090;
-	font-weight: normal;
 }
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 930px) {
+	.picture .item{
+		padding-left: 15px;
+		margin: 66px 19px 0 8px;
+	}
+	.picture .circle {
+	    width: 160px;
+	    height: 160px;
+	    min-width: 160px;
+	}
+	.picture img{
+		width: 50%;
+	}
+}
+@media screen and (max-width: 767px) {
 	.picture::after{
 		display: none;
 	}
@@ -352,14 +436,14 @@ body{
 		display: block;
 	}
 	.picture .item{
-		padding:  39px 0 18px 44px;
+		padding: 39px 2px 18px 44px;
 		text-align: left;
 		display: flex;
 		border-bottom: 1px solid #e3e1e1;
+		margin: 0;
 	}
-	.picture p{
-		text-align: left;
-		padding: 0 75px 0 25px;
+	.picture .text{
+		padding: 22px 75px 0 25px;
 	}
 	.picture .text p.title{
 		font-size: 34.13px;
@@ -372,85 +456,77 @@ body{
 		height: 136px;
 		min-width: 136px;
 	}
-	.picture img{
-		width: 50%;
-	}
 }
 @media screen and (max-width: 595px){
+	.picture .text{
+		padding: 10px 45px 0 25px;
+	}
 	.picture .text p.title{
 		font-size: 26.13px;
-		padding-right: 45px;
 	}
 	.picture .text p.sub{
 		font-size: 15.35px;
-		padding-right: 45px;
 	}
 	.picture .circle{
 		width: 95px;
 		height: 95px;
 		min-width: 95px;
 	}
-	.picture .text{
-		padding-top: 10px;
-	}
 }
 @media screen and (max-width: 483px){
+	.picture .item{
+		padding-left: 25px;
+	}
 	.picture .text p.title{
 		font-size: 22.13px;
-		padding-right: 30px;
 	}
 	.picture .text p.sub{
 		font-size: 12.35px;
-		padding-right: 30px;
 	}
 }
 @media screen and (max-width: 404px){
+	.picture .item{
+		padding-left: 15px;
+	}
+	.picture .text{
+		padding: 10px 10px 0;
+	}
 	.picture .text p.title{
 		font-size: 20.13px;
-		padding-right: 10px;
 	}
 	.picture .text p.sub{
 		font-size: 11.35px;
-		padding-right: 10px;
-	}
-	.picture .item{
-		padding-left: 20px;
 	}
 }
-
-
 /* END PICTURE */
 
 /* DETAIL */
 .detail{
 	border-bottom: 1px solid #e3e1e1;
 }
-.detail .wrapper {
+.detail .wrapper{
 	display: flex;
+	font-family: SegoeWPN;
+	color: #6f7173;
 }
 .detail .box1{
 	text-align: center;
 	padding: 68px 115px 48px 55px ;
 }
 .detail .box2{
-	padding: 130px 0 48px 0;
+	padding: 130px 40px 48px 0;
 }
 .detail .box1 h4{
-	font-family: SegoeWPN;
 	font-size: 42.35px;
 	font-weight: normal;
-	color: #6f7173;
 	margin-bottom: 40px;
 }
 .detail .box2 h4{
-	font-family: SegoeWPN;
 	font-size: 26.35px;
 	font-weight: normal;
-	color: #6f7173;
 	margin-bottom: 20px;
 }
 .detail .box2 p{
-	font-family: SegoeWPN;
 	color: #909090;
 	font-size: 15.35px;
 	font-weight: lighter;
@@ -466,16 +542,16 @@ body{
 	.detail .box1 h4{
 		font-size: 38px;
 	}
-	.detail .box2{
-		padding-right: 40px; 
-	}
 }
 @media screen and (max-width: 900px){
 	.detail img{
 		width: 75%;
 	}
 	.detail .box1{
-		padding: 68px 28px 48px 15px;
+		padding: 68px 28px 48px 20px;
+	}
+	.detail .box1 h4{
+		font-size: 36px;
 	}
 	.detail .box2 h4{
 		font-size: 25px;
@@ -484,7 +560,7 @@ body{
 		font-size: 15px;
 	}
 }
-@media screen and (max-width: 840px){
+@media screen and (max-width: 767px){
 	.detail .wrapper{
 		flex-direction: column;
 	}
@@ -492,8 +568,10 @@ body{
 		width: 40%;
 	}
 	.detail .box1{
-		text-align: center;
 		padding: 40px 60px 5px 55px;
+	}
+	.detail .box2{
+		padding: 0 40px 30px 100px;
 	}
 	.detail .box2 h4{
 		font-size: 34.35px;
@@ -501,29 +579,22 @@ body{
 	.detail .box2 p{
 		font-size: 17.35px; 
 	}
-	.detail .box2{
-		padding: 0 70px 30px 135px;
-	}
-}
-@media screen and (max-width: 770px){
-	.detail .box2{
-		padding: 0 40px 30px 100px;
-	}
 }
 @media screen and (max-width: 700px){
 	.detail .box2{
-		padding: 0 30px 30px 50px;
+		padding: 0 30px 30px 55px;
 	}
 }
-@media screen and (max-width: 475px){
+@media screen and (max-width: 530px){
 	.detail .box1 {
 		padding: 20px 30px 0 30px;
 	}
 	.detail .box1 h4{
-		font-size: 26px;
+		font-size: 30px;
+		margin-bottom: 20px;
 	}
 	.detail .box2{
-		padding: 0 20px 30px 20px;
+		padding: 0 30px 10px;
 	}
 	.detail .box2 h4{
 		font-size: 23.35px;
@@ -546,7 +617,10 @@ body{
 	text-align: center;
 	padding: 34px 0 44px 0; 
 }
-@media screen and (max-width: 475px){
+.footer p:hover{
+	opacity: 0.7;
+}
+@media screen and (max-width: 530px){
 	.footer p{
 		font-size: 13.35px;
 		padding: 20px 0 20px 0;
